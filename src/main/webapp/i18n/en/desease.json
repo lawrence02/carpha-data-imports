@@ -1,0 +1,29 @@
+{
+  "caphaApp": {
+    "desease": {
+      "home": {
+        "title": "Deseases",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Desease",
+        "createOrEditLabel": "Create or edit a Desease",
+        "notFound": "No Deseases found"
+      },
+      "created": "A new Desease is created with identifier {{ param }}",
+      "updated": "A Desease is updated with identifier {{ param }}",
+      "deleted": "A Desease is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Desease {{ id }}?"
+      },
+      "detail": {
+        "title": "Desease"
+      },
+      "id": "ID",
+      "country": "Country",
+      "deseaseId": "Desease Id",
+      "caseInfo": "Case Info",
+      "year": "Year",
+      "week": "Week",
+      "weekEnding": "Week Ending"
+    }
+  }
+}

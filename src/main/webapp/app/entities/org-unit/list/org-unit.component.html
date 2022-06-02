@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="OrgUnitHeading">
+    <span jhiTranslate="caphaApp.orgUnit.home.title">Org Units</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="caphaApp.orgUnit.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-org-unit"
+        [routerLink]="['/org-unit/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="caphaApp.orgUnit.home.createLabel"> Create a new Org Unit </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="orgUnits?.length === 0">
+    <span jhiTranslate="caphaApp.orgUnit.home.notFound">No orgUnits found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="orgUnits && orgUnits.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="orgUnitName">
+            <span jhiTranslate="caphaApp.orgUnit.orgUnitName">Org Unit Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dhisOrgUnitName">
+            <span jhiTranslate="caphaApp.orgUnit.dhisOrgUnitName">Dhis Org Unit Name</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dhisOrgUnitCode">
+            <span jhiTranslate="caphaApp.orgUnit.dhisOrgUnitCode">Dhis Org Unit Code</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let orgUnit of orgUnits; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/org-unit', orgUnit.id, 'view']">{{ orgUnit.id }}</a>
+          </td>
+          <td>{{ orgUnit.orgUnitName }}</td>
+          <td>{{ orgUnit.dhisOrgUnitName }}</td>
+          <td>{{ orgUnit.dhisOrgUnitCode }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/org-unit', orgUnit.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/org-unit', orgUnit.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(orgUnit)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="orgUnits && orgUnits.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>
