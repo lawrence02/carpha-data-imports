@@ -1,0 +1,40 @@
+{
+  "applications": "*",
+  "changelogDate": "20220602160352",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "desease",
+  "fields": [
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deseaseId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "caseInfo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "week",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "weekEnding",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Desease",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

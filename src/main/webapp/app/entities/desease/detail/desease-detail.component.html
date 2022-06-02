@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="desease">
+      <h2 data-cy="deseaseDetailsHeading"><span jhiTranslate="caphaApp.desease.detail.title">Desease</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ desease.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.country">Country</span></dt>
+        <dd>
+          <span>{{ desease.country }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.deseaseId">Desease Id</span></dt>
+        <dd>
+          <span>{{ desease.deseaseId }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.caseInfo">Case Info</span></dt>
+        <dd>
+          <span>{{ desease.caseInfo }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.year">Year</span></dt>
+        <dd>
+          <span>{{ desease.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.week">Week</span></dt>
+        <dd>
+          <span>{{ desease.week }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.desease.weekEnding">Week Ending</span></dt>
+        <dd>
+          <span>{{ desease.weekEnding }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/desease', desease.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

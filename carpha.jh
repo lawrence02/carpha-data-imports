@@ -1,0 +1,28 @@
+
+entity OrgUnit {
+	orgUnitName String,
+    dhisOrgUnitName String,
+    dhisOrgUnitCode String
+}
+
+entity Desease {
+	country String,
+    deseaseId String,
+    caseInfo String,
+    year String,
+    week String,
+    weekEnding String
+}
+
+
+
+paginate OrgUnit, Desease with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

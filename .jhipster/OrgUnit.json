@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20220602160351",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "org_unit",
+  "fields": [
+    {
+      "fieldName": "orgUnitName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dhisOrgUnitName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dhisOrgUnitCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OrgUnit",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

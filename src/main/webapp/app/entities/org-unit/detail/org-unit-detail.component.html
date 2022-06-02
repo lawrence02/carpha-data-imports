@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="orgUnit">
+      <h2 data-cy="orgUnitDetailsHeading"><span jhiTranslate="caphaApp.orgUnit.detail.title">Org Unit</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ orgUnit.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.orgUnit.orgUnitName">Org Unit Name</span></dt>
+        <dd>
+          <span>{{ orgUnit.orgUnitName }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.orgUnit.dhisOrgUnitName">Dhis Org Unit Name</span></dt>
+        <dd>
+          <span>{{ orgUnit.dhisOrgUnitName }}</span>
+        </dd>
+        <dt><span jhiTranslate="caphaApp.orgUnit.dhisOrgUnitCode">Dhis Org Unit Code</span></dt>
+        <dd>
+          <span>{{ orgUnit.dhisOrgUnitCode }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/org-unit', orgUnit.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

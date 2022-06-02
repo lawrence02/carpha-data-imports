@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-desease-heading" data-cy="DeseaseCreateUpdateHeading" jhiTranslate="caphaApp.desease.home.createOrEditLabel">
+        Create or edit a Desease
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.country" for="field_country">Country</label>
+          <input type="text" class="form-control" name="country" id="field_country" data-cy="country" formControlName="country" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.deseaseId" for="field_deseaseId">Desease Id</label>
+          <input type="text" class="form-control" name="deseaseId" id="field_deseaseId" data-cy="deseaseId" formControlName="deseaseId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.caseInfo" for="field_caseInfo">Case Info</label>
+          <input type="text" class="form-control" name="caseInfo" id="field_caseInfo" data-cy="caseInfo" formControlName="caseInfo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.year" for="field_year">Year</label>
+          <input type="text" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.week" for="field_week">Week</label>
+          <input type="text" class="form-control" name="week" id="field_week" data-cy="week" formControlName="week" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="caphaApp.desease.weekEnding" for="field_weekEnding">Week Ending</label>
+          <input
+            type="text"
+            class="form-control"
+            name="weekEnding"
+            id="field_weekEnding"
+            data-cy="weekEnding"
+            formControlName="weekEnding"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
